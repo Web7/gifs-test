@@ -46,7 +46,7 @@ export default class HeaderOrganism extends Vue {
 			return;
 		}
 		this.isLoadGifs = false;
-		if (this.offset === 0) {
+		if (this.offset === 0 && false) {
 			this.result = [];
 		}
 		axios.get(
@@ -58,11 +58,9 @@ export default class HeaderOrganism extends Vue {
 	}
 
 	renderResult(response: any) {
-		let count = 0;
 		for (let el of response.data.data) {
 			let images = el.images;
 			this.result.push({url: images.original.url, height: images.fixed_height.height, width: images.fixed_height.width});
-			if ((count += 1) >= this.resultNumbers) break;
 		}
 	}
 
